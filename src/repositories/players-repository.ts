@@ -1,7 +1,4 @@
-interface playerModel{
-    id:number;
-    name:string;
-}
+import { playerModel } from "../models/player-model";
 
 const dataBase: playerModel[] = [
     {id:1,name:"messi"},
