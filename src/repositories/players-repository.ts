@@ -13,8 +13,17 @@ export const findAllPlayers = async ():Promise<playerModel[]> => {
 
 export const findPlayerById = async (id:number):Promise<playerModel | undefined> => {
     return dataBase.find(player => player.id === id)
-}
+};
 
 export const insertPlayer = async (player: playerModel) => {
     dataBase.push(player)
-}
+};
+
+export const deleteOnePlayer = async (id:number) => {
+    const index = dataBase.findIndex(p => p.id === id);
+
+    if(index !== -1){
+        dataBase.splice(index,1)
+    }
+    
+};
