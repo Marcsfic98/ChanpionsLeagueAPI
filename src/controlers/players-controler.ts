@@ -35,7 +35,7 @@ export const deletPlayer = async (req:Request, res:Response) => {
 export const updatePlayer = async (req:Request, res:Response) => {
     const id = parseInt(req.params.id);
     const bodyValue:statisticsModel = req.body
-    const httpResponse = await updatePlayerService(id,bodyValue)
+    const HttpResponse = await updatePlayerService(id,bodyValue)
 
     res.status(HttpResponse.statusCode).json(HttpResponse.body)
 }

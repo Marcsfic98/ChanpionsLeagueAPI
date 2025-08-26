@@ -1,10 +1,39 @@
 import { playerModel } from "../models/player-model";
+import { statisticsModel } from "../models/statistics-model";
 
 const dataBase: playerModel[] = [
-    {id:1,name:"messi"},
-    {id:2,name:"Ronaldinho"},
-    {id:3,name:"Neymar"},
-    {id:4,name:"Cristiano ronaldo"}
+    {   
+        id:1,
+        name:"messi",
+        statistics:{
+            chute:85,
+            velocidade:72
+        }
+    },
+    {
+        id:2,
+        name:"Ronaldinho",
+        statistics:{
+            chute:85,
+            velocidade:72
+        }
+    },
+    {
+        id:3,
+        name:"Neymar",
+        statistics:{
+            chute:85,
+            velocidade:72
+        }
+    },
+    {
+        id:4,
+        name:"Cristiano ronaldo",
+        statistics:{
+            chute:85,
+            velocidade:72
+        }
+    }
 ];
 
 export const findAllPlayers = async ():Promise<playerModel[]> => {
@@ -27,3 +56,13 @@ export const deleteOnePlayer = async (id:number) => {
     }
     
 };
+
+export const findAndModifyPlayer = async (id:number , statistics:statisticsModel):Promise<playerModel>=> {
+    const playerIndex = dataBase.findIndex(p => p.id === id)
+
+    if(playerIndex !== -1){
+        dataBase[playerIndex].statistics = statistics
+    }
+
+    return dataBase[playerIndex]
+}
