@@ -6,3 +6,4 @@ export interface playerModel{
             velocidade:number;
         }
 }
+
